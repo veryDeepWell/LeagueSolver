@@ -2,9 +2,11 @@
 
 Standalone static website, Russian UI, pinned game data 26.22 (Data Dragon 16.22.1). No runtime dependencies, API keys or player statistics.
 
-Run `node server.mjs` and visit http://127.0.0.1:4173. Run `node --test tests/engine.test.mjs` for model checks. Deploy `dist/` as static assets. npm script aliases are also provided.
+Run `node server.mjs` and visit http://127.0.0.1:4173. Run `node --test tests/*.test.mjs` for model and deployment-path checks. Deploy `dist/` as static assets. npm script aliases are also provided.
 
 ## Самостоятельный хостинг
+
+Для GitHub Pages уже настроен workflow в корне репозитория: `.github/workflows/pages.yml`. Один раз выберите **Settings → Pages → Source → GitHub Actions**, затем отправляйте обновления в `main`. На сайт загружается только содержимое `dist/`; архив ZIP для этого не используется. Инструкции — в [корневом README](../README.md#github-pages).
 
 Загрузите **содержимое** `dist/` в корневую папку сайта: `index.html`, CSS/JS, папки `assets/` и `data/`. Подойдёт любой обычный статический HTTP-хостинг, включая Nginx, Apache или GitHub Pages. Серверная часть, сборка, GPT Sites и авторизация не требуются. Размещение в подпапке также поддерживается: ресурсы используют относительные пути.
 
