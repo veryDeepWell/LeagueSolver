@@ -2,13 +2,13 @@
 
 Standalone static website, Russian UI, pinned game data 26.22 (Data Dragon 16.22.1). No runtime dependencies, API keys or player statistics.
 
-Run `node server.mjs` and visit http://127.0.0.1:4173. Run `node --test tests/*.test.mjs` for model and deployment-path checks. Deploy `dist/` as static assets. npm script aliases are also provided.
+Run `node server.mjs` from the repository root and visit http://127.0.0.1:4173. Run `node --test swain-lab/tests/*.test.mjs` from the root for model and deployment-path checks. The website entry point is the root `index.html`. npm script aliases are also provided.
 
 ## Самостоятельный хостинг
 
-Для GitHub Pages уже настроен workflow в корне репозитория: `.github/workflows/pages.yml`. Один раз выберите **Settings → Pages → Source → GitHub Actions**, затем отправляйте обновления в `main`. На сайт загружается только содержимое `dist/`; архив ZIP для этого не используется. Инструкции — в [корневом README](../README.md#github-pages).
+Для GitHub Pages уже настроен workflow в корне репозитория: `.github/workflows/pages.yml`. Один раз выберите **Settings → Pages → Source → GitHub Actions**, затем отправляйте обновления в `main`. Точка входа `index.html` и ресурсы находятся в корне репозитория. Также поддерживается публикация ветки `main`, папки `/ (root)`; архив ZIP для этого не используется. Инструкции — в [корневом README](../README.md#github-pages).
 
-Загрузите **содержимое** `dist/` в корневую папку сайта: `index.html`, CSS/JS, папки `assets/` и `data/`. Подойдёт любой обычный статический HTTP-хостинг, включая Nginx, Apache или GitHub Pages. Серверная часть, сборка, GPT Sites и авторизация не требуются. Размещение в подпапке также поддерживается: ресурсы используют относительные пути.
+Загрузите из корня репозитория `index.html`, `app.js`, `engine.js`, CSS, `.nojekyll` и папки `assets/`, `data/` на статический хостинг. Сборка, серверная часть и авторизация не требуются.
 
 Для локального просмотра: `node server.mjs`. HTML нужно открывать через HTTP, поскольку при открытии файла напрямую браузер ограничивает загрузку модулей и JSON.
 
@@ -20,10 +20,10 @@ Exhaustive search covers unique combinations of 8 implemented items and 6 legal 
 
 ## Data and provenance
 
-- `dist/data/swain.json`: Riot Data Dragon, 16.22.1 champion stats/cooldowns/costs.
-- `dist/data/items.json`: Riot Data Dragon, 16.22.1 item descriptions, stats, recipes and prices.
-- `dist/data/swain-bin.json`: CommunityDragon extracted game data, pinned 16.22; coefficients checked against model constants.
-- Official Riot splash and item images in `dist/assets/`.
+- `data/swain.json`: Riot Data Dragon, 16.22.1 champion stats/cooldowns/costs.
+- `data/items.json`: Riot Data Dragon, 16.22.1 item descriptions, stats, recipes and prices.
+- `data/swain-bin.json`: CommunityDragon extracted game data, pinned 16.22; coefficients checked against model constants.
+- Official Riot splash and item images in `assets/`.
 - Rune/proc rules cross-checked against League of Legends Wiki, linked inside the app.
 
 The model requires in-game practice-tool validation before claiming server-level accuracy. Full assumptions are visible in the UI.

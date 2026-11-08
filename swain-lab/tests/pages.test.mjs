@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {ITEMS} from '../dist/engine.js';
+import {ITEMS} from '../../engine.js';
 
-const root=fileURLToPath(new URL('../dist/',import.meta.url));
+const root=fileURLToPath(new URL('../../',import.meta.url));
 const read=name=>readFileSync(path.join(root,name),'utf8');
 // Exact casing matters on Pages/Linux, even when development happens on Windows.
 function checkFile(relative){
