@@ -1,0 +1,1 @@
+{"name":"swain-lab","private":true,"type":"module","scripts":{"dev":"node server.mjs","test":"node --test tests/*.test.mjs"}}
